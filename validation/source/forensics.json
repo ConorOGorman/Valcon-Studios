@@ -1,0 +1,163 @@
+{
+  "sourceUrl": "https://www.hatamex.agency/en",
+  "capturedAt": "2025-12-16T00:44:47.049Z",
+  "viewports": [
+    {
+      "name": "desktop-1440x900",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "laptop-1280x800",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "name": "tablet-834x1112",
+      "width": 834,
+      "height": 1112
+    },
+    {
+      "name": "mobile-390x844",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "cssVars": {
+    "--spacing": ".25rem",
+    "--container-xl": "36rem",
+    "--radius-sm": ".25rem",
+    "--radius-lg": ".5rem",
+    "--blur-sm": "8px",
+    "--blur-lg": "16px",
+    "--blur-xl": "24px",
+    "--ease-out": "cubic-bezier(0,0,.2,1)",
+    "--ease-in-out": "cubic-bezier(.4,0,.2,1)",
+    "--default-transition-duration": ".15s",
+    "--default-transition-timing-function": "cubic-bezier(.4,0,.2,1)",
+    "--transition-fast": ".15s",
+    "--transition-ease": "cubic-bezier(.4,0,.2,1)",
+    "--color-background": "#fff",
+    "--color-accent": "#1718fe",
+    "--color-container": "#f4f4f4",
+    "--color-nav-darker-container": "#212121",
+    "--color-gray-text": "#878787",
+    "--color-gray-text-2": "#4e4e4e",
+    "--color-nav-text": "#101828",
+    "--color-gray-border": "#c8c8c8",
+    "--font-body": "",
+    "--font-title": "",
+    "--font-rinter": "",
+    "--font-source-code-pro": "",
+    "--line-height-body": "1.875rem"
+  },
+  "computed": {
+    "body": {
+      "selector": "body",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 10640.640625
+      },
+      "background-color": "rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "font-size": "16px",
+      "line-height": "30px"
+    },
+    "navShell": {
+      "selector": "nav > div",
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 92
+      },
+      "background-color": "oklab(0 0 0 / 0.4)",
+      "border-bottom-color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
+      "backdrop-filter": "blur(16px)",
+      "height": "92px"
+    },
+    "hero": {
+      "section": {
+        "selector": "section[data-slice-type=\"hero\"]",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 1440,
+          "h": 900
+        },
+        "background-color": "rgb(0, 0, 0)",
+        "padding-top": "0px",
+        "padding-bottom": "0px"
+      },
+      "eyebrow": {
+        "selector": "section[data-slice-type=\"hero\"] p[class*=\"font-source-code-pro\"]",
+        "box": {
+          "x": 300,
+          "y": 231.5,
+          "w": 95.765625,
+          "h": 21
+        },
+        "color": "rgb(168, 162, 157)",
+        "font-family": "\"Source Code Pro\", \"Source Code Pro Fallback\"",
+        "font-size": "14px",
+        "font-weight": "400",
+        "letter-spacing": "-0.42px",
+        "text-transform": "uppercase",
+        "line-height": "21px"
+      },
+      "h1": {
+        "selector": "section[data-slice-type=\"hero\"] h1",
+        "box": {
+          "x": 64,
+          "y": 276.5,
+          "w": 530.390625,
+          "h": 199.5
+        },
+        "color": "rgb(255, 255, 255)",
+        "font-family": "rinter, \"rinter Fallback\"",
+        "font-size": "70px",
+        "font-weight": "500",
+        "letter-spacing": "-3.5px",
+        "line-height": "66.5px"
+      },
+      "body": {
+        "selector": "section[data-slice-type=\"hero\"] p[class*=\"font-body\"]",
+        "box": {
+          "x": 64,
+          "y": 500,
+          "w": 517.609375,
+          "h": 60
+        },
+        "color": "rgb(168, 162, 157)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "20px",
+        "font-weight": "400",
+        "letter-spacing": "normal",
+        "line-height": "20px",
+        "max-width": "none"
+      }
+    },
+    "primaryButton": {
+      "selector": "a[href*=\"/en/contact\"] (first BOOK A CALL)",
+      "box": {
+        "x": 64,
+        "y": 676,
+        "w": 184,
+        "h": 54
+      },
+      "background-color": "rgb(23, 24, 254)",
+      "color": "rgb(0, 0, 0)",
+      "border-radius": "0px",
+      "padding-inline": "28px",
+      "padding-block": "15px",
+      "font-family": "\"Source Code Pro\", \"Source Code Pro Fallback\"",
+      "font-size": "14px",
+      "font-weight": "400",
+      "letter-spacing": "-0.42px",
+      "text-transform": "none"
+    }
+  }
+}

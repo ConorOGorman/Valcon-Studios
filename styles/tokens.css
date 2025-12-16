@@ -1,0 +1,128 @@
+:root {
+  /* Colors (extracted from Hatamex live CSS/computed styles) */
+  --hx-color-black: #000000;
+  --hx-color-white: #ffffff;
+  --hx-color-background: #ffffff; /* --color-background */
+  --hx-color-accent: #1718fe;
+  --hx-color-container: #f4f4f4;
+  --hx-color-nav-darker-container: #212121;
+  --hx-color-nav-text: #101828; /* --color-nav-text */
+  --hx-color-gray-text: #878787;
+  --hx-color-gray-text-2: #4e4e4e;
+  --hx-color-gray-border: #c8c8c8;
+  --hx-color-hero-muted: #a8a29d;
+  --hx-color-online: #19d300;
+  --hx-color-online-40: #19d30066;
+  --hx-color-body-dark: #1e1e20;
+  --hx-color-available: #797979;
+
+  --hx-color-white-10: rgb(255 255 255 / 0.1);
+  --hx-color-white-20: rgb(255 255 255 / 0.2);
+  --hx-color-white-40: rgb(255 255 255 / 0.4);
+  --hx-color-black-10: rgb(0 0 0 / 0.1);
+  --hx-color-black-20: rgb(0 0 0 / 0.2);
+  --hx-color-black-40: rgb(0 0 0 / 0.4);
+  --hx-color-black-60: rgb(0 0 0 / 0.6);
+
+  --hx-color-nav-shell: rgb(0 0 0 / 0.4); /* computed nav bg */
+  --hx-color-nav-border: rgb(255 255 255 / 0.1); /* computed nav border */
+
+  /* Typography (exact ramp from live Tailwind classes) */
+  --hx-font-body: var(--font-body);
+  --hx-font-title: var(--font-title);
+  --hx-font-rinter: var(--font-rinter);
+  --hx-font-source-code-pro: var(--font-source-code-pro);
+
+  --hx-type-eyebrow-sm: 12px;
+  --hx-type-eyebrow-lg: 14px;
+  --hx-type-eyebrow-tracking-sm: -0.36px;
+  --hx-type-eyebrow-tracking-lg: -0.42px;
+
+  --hx-type-hero-h1-sm: 40px;
+  --hx-type-hero-h1-lg: 70px;
+  --hx-type-hero-h1-leading-lg: 0.95;
+  --hx-type-hero-h1-tracking-sm: -2px;
+  --hx-type-hero-h1-tracking-lg: -3.5px;
+  --hx-type-hero-h1-weight: 500;
+
+  --hx-type-hero-body-sm: 14px;
+  --hx-type-hero-body-lg: 20px;
+  --hx-type-hero-body-leading-sm: 1.4;
+  --hx-type-hero-body-leading-lg: 20px;
+
+  --hx-type-h2-sm: 30px;
+  --hx-type-h2-lg: 55px;
+  --hx-type-h2-leading: 1.1;
+  --hx-type-h2-tracking-sm: -1.5px;
+  --hx-type-h2-tracking-lg: -2.75px;
+
+  --hx-type-body-sm: 16px;
+  --hx-type-body-lg: 17px;
+  --hx-type-body-leading-sm: 1.3;
+  --hx-type-body-leading-lg: 30px;
+
+  --hx-type-manifesto-sm: 23px;
+  --hx-type-manifesto-lg: 36px;
+
+  /* Layout & spacing */
+  --hx-container-max: 1500px;
+  --hx-spacing-unit: 4px; /* from --spacing: .25rem */
+
+  --hx-page-px-sm: 12px; /* px-[12px] */
+  --hx-page-px-lg: 64px; /* lg:px-16 */
+  --hx-page-px-2xl: 0px; /* 2xl:px-0 */
+
+  --hx-section-py-sm: 60px; /* .section-padding padding-block */
+  --hx-section-py-lg: 200px; /* lg .section-padding padding-block */
+  --hx-section-pt-only-sm: 60px; /* .section-padding-top-only padding-top */
+  --hx-section-pt-only-lg: 200px;
+
+  --hx-header-height-desktop: 92px; /* computed nav shell height at 1440×900 */
+
+  --hx-button-height-sm: 40px;
+  --hx-button-height-lg: 54px;
+  --hx-button-padding-x-primary: 28px;
+  --hx-button-padding-x-secondary: 30px;
+  --hx-button-padding-y-lg: 15px;
+
+  /* Radii, borders, blur, shadows */
+  --hx-border-hairline: 0.5px;
+  --hx-border-1: 1px;
+  --hx-radius-none: 0px;
+  --hx-radius-lg: 0.5rem; /* rounded-lg */
+  --hx-radius-pill: 99px; /* rounded-[99px] */
+
+  --hx-blur-sm: 8px;
+  --hx-blur-lg: 16px;
+  --hx-blur-xl: 24px;
+
+  --hx-shadow-preloader-progress: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9))
+    drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+
+  /* Motion */
+  --hx-duration-fast: 150ms;
+  --hx-duration-200: 200ms;
+  --hx-duration-300: 300ms;
+  --hx-duration-350: 350ms;
+  --hx-duration-500: 500ms;
+  --hx-duration-preloader-progress: 2000ms;
+  --hx-duration-preloader-delay: 300ms;
+  --hx-duration-preloader-hold: 650ms;
+  --hx-duration-preloader-icon: 600ms;
+  --hx-duration-preloader-typeface: 800ms;
+  --hx-duration-preloader-logo-exit: 600ms;
+  --hx-duration-preloader-overlay: 300ms;
+  --hx-duration-preloader-before-overlay: 600ms; /* 0.1s + 0.5s */
+  --hx-duration-preloader-complete-delay: 100ms;
+
+  --hx-ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --hx-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --hx-ease-menu: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --hx-ease-hop: cubic-bezier(0.9, 0, 0.1, 1);
+
+  /* Spring (Framer Motion / JSAnimation spring config) */
+  --hx-spring-kpi-damping: 60;
+  --hx-spring-kpi-stiffness: 100;
+  --hx-spring-kpi-rest-delta: 0.001;
+  --hx-spring-kpi-rest-speed: 0.01;
+}

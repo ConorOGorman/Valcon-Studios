@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "dependencies": {
+    "i": "^0.3.7"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.57.0"
+  },
+  "scripts": {
+    "build": "node scripts/generate-home.mjs",
+    "dev": "node scripts/dev.mjs --open",
+    "validate": "node scripts/validate.mjs"
+  }
+}
