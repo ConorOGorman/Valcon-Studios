@@ -78,8 +78,27 @@ function placeholderDataUri(label = "Placeholder") {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 }
 
+function swapNavWordmark(navHtml) {
+  const marker = 'h-[21.299px] lg:h-[25px] overflow-hidden';
+  const startIdx = navHtml.indexOf(marker);
+  if (startIdx === -1) return navHtml;
+
+  const divStart = navHtml.lastIndexOf("<div", startIdx);
+  if (divStart === -1) return navHtml;
+
+  const endNeedle = "</svg></div></div>";
+  const endIdx = navHtml.indexOf(endNeedle, startIdx);
+  if (endIdx === -1) return navHtml;
+
+  const before = navHtml.slice(0, divStart);
+  const after = navHtml.slice(endIdx + endNeedle.length);
+
+  const replacement = `<div class="flex items-center h-[21.299px] lg:h-[25px] overflow-hidden" style="clip-path:inset(0 0% 0 0);width:127.395px"><span class="font-rinter text-white text-[20px] lg:text-[22px] leading-none tracking-[-0.8px]">Valcon</span></div>`;
+  return `${before}${replacement}${after}`;
+}
+
 function rewriteAssetTags(html) {
-  const placeholder = placeholderDataUri("HATAMEX");
+  const placeholder = placeholderDataUri("VALCON");
 
   // <img ... src=... srcSet=...>
   html = html.replace(/<img\b[^>]*>/gi, (tag) => {
@@ -128,7 +147,7 @@ function buildHead() {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Hatamex Digital Agency – Clone</title>
+    <title>Valcon Digital Agency – Clone</title>
     <link rel="preload" href="assets/media/PlusJakartaSans_Variable-s.p.f95c7fb9.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/media/Rinter-s.p.01abee16.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/media/c9e42e3eae6237c2-s.p.24d96596.woff2" as="font" type="font/woff2" crossorigin />
@@ -137,6 +156,11 @@ function buildHead() {
     <link rel="stylesheet" href="styles/tokens.css" />
     <link rel="stylesheet" href="styles/app.css" />
   </head>`;
+}
+
+function renameBrand(html) {
+  // Only replace case-sensitive occurrences (avoid breaking lower-case asset URLs like `/hatamex/...`).
+  return html.replaceAll("Hatamex", "Valcon").replaceAll("HATAMEX", "VALCON");
 }
 
 function buildBody({ preloaderHtml, appOverlayHtml, navHtml, mainHtml, footerHtml }) {
@@ -170,6 +194,7 @@ async function main() {
     '<nav class="fixed',
     '<nav id="site-nav" class="fixed',
   );
+  navHtml = swapNavWordmark(navHtml);
 
   // Live sets inline width/top via motion; keep the same baseline so `lg:w-auto` doesn't
   // collapse the bar at desktop when the preloader finishes.
@@ -221,13 +246,15 @@ async function main() {
 
   const footerHtml = extractTag(sourceHtml, "<footer");
 
-  const output = `${buildHead()}${buildBody({
-    preloaderHtml: rewriteAssetTags(preloaderHtml),
-    appOverlayHtml,
-    navHtml,
-    mainHtml: rewriteAssetTags(mainHtml),
-    footerHtml: rewriteAssetTags(footerHtml),
-  })}`;
+  const output = renameBrand(
+    `${buildHead()}${buildBody({
+      preloaderHtml: rewriteAssetTags(preloaderHtml),
+      appOverlayHtml,
+      navHtml,
+      mainHtml: rewriteAssetTags(mainHtml),
+      footerHtml: rewriteAssetTags(footerHtml),
+    })}`,
+  );
 
   await fs.writeFile(OUT_PATH, output, "utf8");
 }

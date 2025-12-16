@@ -1,5 +1,5 @@
 :root {
-  /* Hatamex does not adapt to OS dark mode; force light UA colors so sections like the manifesto
+  /* Valcon build does not adapt to OS dark mode; force light UA colors so sections like the manifesto
      (bg-white with inherited text color) stay readable even when `prefers-color-scheme: dark`. */
   color-scheme: light;
 }
@@ -10,7 +10,7 @@
   outline-offset: 3px;
 }
 
-/* JS line-splitting/reveal (mirrors Hatamex DOM structure) */
+/* JS line-splitting/reveal (mirrors source DOM structure) */
 .line-mask {
   position: relative;
   display: block;
@@ -53,7 +53,7 @@ iframe[src="about:blank"] {
   }
 }
 
-/* Hero collage keyframes (extracted from live Hatamex styled-jsx blocks) */
+/* Hero collage keyframes (extracted from source styled-jsx blocks) */
 @keyframes pulse-dot {
   0%,
   to {

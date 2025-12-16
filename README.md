@@ -1,4 +1,4 @@
-# Hatamex /en Landing Page — Pixel Clone
+# Valcon Landing Page — Pixel Clone
 
 Pixel-accurate static clone of `https://www.hatamex.agency/en` (English home) built from live DOM/CSS forensics.
 
