@@ -21,30 +21,30 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
         <link
           rel="preload"
-          href="/assets/media/PlusJakartaSans_Variable-s.p.f95c7fb9.woff2"
+          href="assets/media/PlusJakartaSans_Variable-s.p.f95c7fb9.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/assets/media/Rinter-s.p.01abee16.woff2"
+          href="assets/media/Rinter-s.p.01abee16.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/assets/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
+          href="assets/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
 
-        <link rel="stylesheet" href="/assets/css/hatamex.css" />
-        <link rel="stylesheet" href="/assets/css/keen.css" />
-        <link rel="stylesheet" href="/styles/tokens.css" />
-        <link rel="stylesheet" href="/styles/app.css" />
+        <link rel="stylesheet" href="assets/css/hatamex.css" />
+        <link rel="stylesheet" href="assets/css/keen.css" />
+        <link rel="stylesheet" href="styles/tokens.css" />
+        <link rel="stylesheet" href="styles/app.css" />
       </head>
       <body className={bodyClass} suppressHydrationWarning>
         <RawHtml html={preloaderHtml} />
@@ -58,6 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
           <RawHtml html={footerHtml} />
         </div>
+        <script src="script.js" defer />
         <Bootstrap />
       </body>
     </html>

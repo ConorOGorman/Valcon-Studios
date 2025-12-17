@@ -25,7 +25,7 @@ function hidePreloader() {
 
 export function Bootstrap() {
   useEffect(() => {
-    const existing = document.querySelector('script[data-valcon-bootstrap="true"]');
+    const existing = document.querySelector('script[data-valcon-bootstrap="true"], script[src$="script.js"]');
     if (existing) return;
 
     const timeoutId = window.setTimeout(() => {
@@ -36,7 +36,7 @@ export function Bootstrap() {
     }, 8000);
 
     const script = document.createElement("script");
-    script.src = "/script.js";
+    script.src = "script.js";
     script.async = true;
     script.dataset.valconBootstrap = "true";
     script.addEventListener("load", () => window.clearTimeout(timeoutId));
@@ -55,4 +55,3 @@ export function Bootstrap() {
 
   return null;
 }
-
