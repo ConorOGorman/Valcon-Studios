@@ -13,9 +13,9 @@ Pixel-accurate static clone of `https://www.hatamex.agency/en` (English home) bu
 - Generate `index.html` from the captured source snapshot: `npm run build`
 - Start local server (opens browser): `npm run dev`
 
-By default, the page uses placeholder images/embeds. To load source reference assets, use:
+By default, the page loads remote images/embeds. To force placeholders instead, use:
 
-- `http://127.0.0.1:5173/?assets=remote`
+- `http://127.0.0.1:5173/?assets=placeholder`
 
 To recapture the live-site source screenshots/tokens:
 
@@ -34,5 +34,5 @@ To recapture the live-site source screenshots/tokens:
 
 Notes:
 - Validation screenshots are taken after the preloader completes and a short settle delay.
-- Build validation uses `?assets=remote` to match the live layout with real media.
+- Build validation uses remote media to match the live layout (default; can also force via `?assets=remote`).
 - Source capture auto-accepts the cookie banner by setting `localStorage.cookie-consent-preferences` before navigation, so screenshots match the uncluttered layout.

@@ -1,7 +1,6 @@
 (() => {
-  const ASSET_MODE = new URLSearchParams(window.location.search).get("assets") === "remote"
-    ? "remote"
-    : "placeholder";
+  const assetsParam = new URLSearchParams(window.location.search).get("assets");
+  const ASSET_MODE = assetsParam === "placeholder" ? "placeholder" : "remote";
 
   const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
 
