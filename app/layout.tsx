@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Bootstrap } from "../components/Bootstrap";
 import { RawHtml } from "../components/RawHtml";
 import {
   appOverlayHtml,
@@ -57,7 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
           <RawHtml html={footerHtml} />
         </div>
-        <script src="/script.js" defer />
+        <Bootstrap />
       </body>
     </html>
   );
