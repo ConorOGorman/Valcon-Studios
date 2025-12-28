@@ -1,0 +1,324 @@
+# Hatamex token extraction notes
+
+Source: https://www.hatamex.agency/en
+
+All values were extracted from Chrome DevTools-equivalent “Computed” styles via Playwright.
+
+## Tokens
+
+- `--hx-bg` = `rgb(0, 0, 0)`
+  - Source element: <body>
+  - DevTools: Computed
+  - Property: `background-color`
+- `--hx-surface-1` = `#fff`
+  - Source element: :root CSS variable
+  - DevTools: Computed → documentElement
+  - Property: `--color-background`
+- `--hx-surface-2` = `#f4f4f4`
+  - Source element: :root CSS variable
+  - DevTools: Computed → documentElement
+  - Property: `--color-container`
+- `--hx-border` = `#c8c8c8`
+  - Source element: :root CSS variable
+  - DevTools: Computed → documentElement
+  - Property: `--color-gray-border`
+- `--hx-border-muted` = `oklab(0.999994 0.0000455678 0.0000200868 / 0.1)`
+  - Source element: Nav border (div.w-full.border-b.lg:border)
+  - DevTools: Computed
+  - Property: `border-bottom-color`
+- `--hx-text` = `rgb(255, 255, 255)`
+  - Source element: Hero H1 “The space between creativity and code”
+  - DevTools: Computed
+  - Property: `color`
+- `--hx-text-muted` = `rgb(168, 162, 157)`
+  - Source element: Hero paragraph under H1
+  - DevTools: Computed
+  - Property: `color`
+- `--hx-accent` = `rgb(23, 24, 254)`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `background-color`
+- `--hx-accent-contrast` = `rgb(255, 255, 255)`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `color`
+- `--hx-focus` = `rgb(23, 24, 254)`
+  - Source element: Nav CTA “BOOK A CALL” (focused)
+  - DevTools: Computed (focus-visible)
+  - Property: `outline-color`
+- `--hx-focus-width` = `2px`
+  - Source element: Nav CTA “BOOK A CALL” (focused)
+  - DevTools: Computed (focus-visible)
+  - Property: `outline-width`
+- `--hx-focus-offset` = `2px`
+  - Source element: Nav CTA “BOOK A CALL” (focused)
+  - DevTools: Computed (focus-visible)
+  - Property: `outline-offset`
+- `--hx-overlay` = `oklab(0 0 0 / 0.4)`
+  - Source element: Nav background (div.w-full.border-b.lg:border)
+  - DevTools: Computed
+  - Property: `background-color`
+- `--hx-gradient-1` = `linear-gradient(in oklab, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%)`
+  - Source element: Gradient overlay (div.absolute.top-0.left-0)
+  - DevTools: Computed
+  - Property: `background-image`
+- `--hx-font-sans` = `ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
+  - Source element: Hero paragraph under H1
+  - DevTools: Computed
+  - Property: `font-family`
+- `--hx-font-heading` = `rinter, "rinter Fallback"`
+  - Source element: Hero H1 “The space between creativity and code”
+  - DevTools: Computed
+  - Property: `font-family`
+- `--hx-font-weight-regular` = `400`
+  - Source element: :root CSS variable
+  - DevTools: Computed → documentElement
+  - Property: `--font-weight-normal`
+- `--hx-font-weight-medium` = `500`
+  - Source element: :root CSS variable
+  - DevTools: Computed → documentElement
+  - Property: `--font-weight-medium`
+- `--hx-font-weight-semibold` = `600`
+  - Source element: :root CSS variable
+  - DevTools: Computed → documentElement
+  - Property: `--font-weight-semibold`
+- `--hx-font-weight-bold` = `700`
+  - Source element: :root CSS variable
+  - DevTools: Computed → documentElement
+  - Property: `--font-weight-bold`
+- `--hx-tracking-eyebrow` = `-0.42px`
+  - Source element: Eyebrow label “RESULTS”
+  - DevTools: Computed
+  - Property: `letter-spacing`
+- `--hx-eyebrow-transform` = `uppercase`
+  - Source element: Eyebrow label “RESULTS”
+  - DevTools: Computed
+  - Property: `text-transform`
+- `--hx-h2-tracking` = `-2.75px`
+  - Source element: Section H2 “Impact you can feel”
+  - DevTools: Computed
+  - Property: `letter-spacing`
+- `--hx-h3-tracking` = `-0.54px`
+  - Source element: Card-ish H3 “Brand Strategy & Identity”
+  - DevTools: Computed
+  - Property: `letter-spacing`
+- `--hx-h1-size` = `40px`
+  - Source element: Hero H1 (mobile)
+  - DevTools: Computed
+  - Property: `font-size`
+- `--hx-h1-line` = `40px`
+  - Source element: Hero H1 (mobile)
+  - DevTools: Computed
+  - Property: `line-height`
+- `--hx-h2-size` = `30px`
+  - Source element: Section H2 “Impact you can feel” (mobile)
+  - DevTools: Computed
+  - Property: `font-size`
+- `--hx-h2-line` = `33px`
+  - Source element: Section H2 “Impact you can feel” (mobile)
+  - DevTools: Computed
+  - Property: `line-height`
+- `--hx-h3-size` = `20px`
+  - Source element: Card-ish H3 “Brand Strategy & Identity” (mobile)
+  - DevTools: Computed
+  - Property: `font-size`
+- `--hx-h3-line` = `24px`
+  - Source element: Card-ish H3 “Brand Strategy & Identity” (mobile)
+  - DevTools: Computed
+  - Property: `line-height`
+- `--hx-body-size` = `14px`
+  - Source element: Hero paragraph (mobile)
+  - DevTools: Computed
+  - Property: `font-size`
+- `--hx-body-line` = `19.6px`
+  - Source element: Hero paragraph (mobile)
+  - DevTools: Computed
+  - Property: `line-height`
+- `--hx-small-size` = `12px`
+  - Source element: Eyebrow label “RESULTS” (mobile)
+  - DevTools: Computed
+  - Property: `font-size`
+- `--hx-small-line` = `14.4px`
+  - Source element: Eyebrow label “RESULTS” (mobile)
+  - DevTools: Computed
+  - Property: `line-height`
+- `--hx-container-max` = `1500px`
+  - Source element: section.relative.flex.flex-col
+  - DevTools: Computed (auto-picked element with max-width >= 1000px)
+  - Property: `max-width`
+- `--hx-container-pad-x` = `12px`
+  - Source element: div.relative.z-10.flex
+  - DevTools: Computed (auto-picked element with max-width >= 1000px)
+  - Property: `padding-left`
+- `--hx-section-pad-y` = `60px`
+  - Source element: A section with .section-padding (mobile)
+  - DevTools: Computed
+  - Property: `padding-top`
+- `--hx-grid-gap-sm` = `30px`
+  - Source element: div.flex.animate-marquee.flex-shrink-0
+  - DevTools: Computed
+  - Property: `gap/row-gap/column-gap`
+- `--hx-grid-gap-md` = `24px`
+  - Source element: div.flex.flex-col.lg:flex-row
+  - DevTools: Computed
+  - Property: `gap/row-gap/column-gap`
+- `--hx-grid-gap-lg` = `30px`
+  - Source element: div.flex.animate-marquee.flex-shrink-0
+  - DevTools: Computed
+  - Property: `gap/row-gap/column-gap`
+- `--hx-card-pad` = `50px 20px`
+  - Source element: Service block (.service-item)
+  - DevTools: Computed
+  - Property: `padding`
+- `--hx-btn-primary-pad-x` = `28px`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `padding-inline`
+- `--hx-btn-primary-pad-y` = `15px`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `padding-block`
+- `--hx-btn-primary-font` = `ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `font-family`
+- `--hx-btn-primary-size` = `14px`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `font-size`
+- `--hx-btn-primary-weight` = `400`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `font-weight`
+- `--hx-btn-primary-tracking` = `-0.42px`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `letter-spacing`
+- `--hx-btn-primary-transform` = `none`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `text-transform`
+- `--hx-btn-primary-bg-hover` = `rgb(23, 24, 254)`
+  - Source element: Nav CTA “BOOK A CALL” (hover)
+  - DevTools: Computed (hover)
+  - Property: `background-color`
+- `--hx-btn-secondary-bg` = `rgb(255, 255, 255)`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `background-color`
+- `--hx-btn-secondary-color` = `rgb(0, 0, 0)`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `color`
+- `--hx-btn-secondary-border` = `oklab(0 0 0 / 0.2)`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `border-color`
+- `--hx-btn-secondary-pad-x` = `30px`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `padding-inline`
+- `--hx-btn-secondary-pad-y` = `15px`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `padding-block`
+- `--hx-btn-secondary-height` = `54px`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `height`
+- `--hx-btn-secondary-font` = `"Source Code Pro", "Source Code Pro Fallback"`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `font-family`
+- `--hx-btn-secondary-size` = `14px`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `font-size`
+- `--hx-btn-secondary-weight` = `400`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `font-weight`
+- `--hx-btn-secondary-tracking` = `-0.42px`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `letter-spacing`
+- `--hx-btn-secondary-transform` = `none`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `text-transform`
+- `--hx-btn-secondary-bg-hover` = `oklab(0.999994 0.0000455677 0.0000200868 / 0.8)`
+  - Source element: Secondary button “EXPLORE OUR WORK” (hover)
+  - DevTools: Computed (hover)
+  - Property: `background-color`
+- `--hx-btn-secondary-color-hover` = `rgb(23, 24, 254)`
+  - Source element: Secondary button “EXPLORE OUR WORK” (hover)
+  - DevTools: Computed (hover)
+  - Property: `color`
+- `--hx-card-border` = `oklab(0.999994 0.0000455678 0.0000200868 / 0.4)`
+  - Source element: Service block (.service-item)
+  - DevTools: Computed
+  - Property: `border-top-color / border-bottom-color`
+- `--hx-card-border-w` = `1px`
+  - Source element: Service block (.service-item)
+  - DevTools: Computed
+  - Property: `border-top-width / border-bottom-width`
+- `--hx-card-bg` = `rgba(0, 0, 0, 0)`
+  - Source element: Service block (.service-item)
+  - DevTools: Computed
+  - Property: `background-color`
+- `--hx-card-bg-hover` = `oklab(0.999994 0.0000455678 0.0000200868 / 0.12)`
+  - Source element: Service block (.service-item) (hover)
+  - DevTools: Computed (hover)
+  - Property: `background-color`
+- `--hx-stack-1` = `16px`
+  - Source element: div.flex.flex-col.gap-[12px]
+  - DevTools: Computed
+  - Property: `gap`
+- `--hx-stack-2` = `16px`
+  - Source element: div.flex.flex-col.gap-[8px]
+  - DevTools: Computed
+  - Property: `gap`
+- `--hx-stack-3` = `50px`
+  - Source element: Service block (.service-item) content stack
+  - DevTools: Computed
+  - Property: `gap`
+- `--hx-radius-card` = `0px`
+  - Source element: Service block (.service-item)
+  - DevTools: Computed
+  - Property: `border-radius`
+- `--hx-radius-btn` = `0px`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `border-radius`
+- `--hx-border-w` = `1px`
+  - Source element: Secondary button “EXPLORE OUR WORK”
+  - DevTools: Computed
+  - Property: `border-width`
+- `--hx-shadow-card` = `none`
+  - Source element: Service block (.service-item)
+  - DevTools: Computed
+  - Property: `box-shadow`
+- `--hx-shadow-card-hover` = `none`
+  - Source element: Service block (.service-item) (hover state uses background/clip, no distinct shadow)
+  - DevTools: Computed
+  - Property: `box-shadow`
+- `--hx-shadow-focus` = `none`
+  - Source element: Nav CTA “BOOK A CALL” (focused)
+  - DevTools: Computed (focus-visible)
+  - Property: `box-shadow`
+- `--hx-ease` = `cubic-bezier(.4,0,.2,1)`
+  - Source element: :root CSS variable
+  - DevTools: Computed → documentElement
+  - Property: `--default-transition-timing-function`
+- `--hx-dur-1` = `.15s`
+  - Source element: :root CSS variable
+  - DevTools: Computed → documentElement
+  - Property: `--default-transition-duration`
+- `--hx-dur-2` = `0.15s`
+  - Source element: Nav CTA “BOOK A CALL”
+  - DevTools: Computed
+  - Property: `transition-duration`
+- `--hx-hover-lift` = `0px`
+  - Source element: Service block (.service-item) (hover transform reference)
+  - DevTools: Computed
+  - Property: `transform`

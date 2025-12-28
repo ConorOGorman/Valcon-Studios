@@ -1,4 +1,9 @@
 (() => {
+  const themeParam = new URLSearchParams(window.location.search).get("theme");
+  if (themeParam && /^[a-z0-9-]+$/i.test(themeParam)) {
+    document.documentElement.dataset.theme = themeParam;
+  }
+
   const assetsParam = new URLSearchParams(window.location.search).get("assets");
   const ASSET_MODE = assetsParam === "placeholder" ? "placeholder" : "remote";
 
@@ -848,11 +853,180 @@
     });
   }
 
+  function initNavMegaMenus() {
+    const nav = document.getElementById("site-nav");
+    if (!(nav instanceof HTMLElement)) return;
+
+    const desktopMq = window.matchMedia?.("(min-width: 1024px)") ?? null;
+    const isDesktop = () => (desktopMq ? desktopMq.matches : window.innerWidth >= 1024);
+
+    const menus = {
+      services: document.querySelector('.nav-mega[data-mega-menu="services"]'),
+      cases: document.querySelector('.nav-mega[data-mega-menu="cases"]'),
+    };
+
+    const triggers = {
+      services: nav.querySelector('a[href="/en/services"]'),
+      cases: nav.querySelector('a[href="/en/cases"]'),
+    };
+
+    if (!(menus.services instanceof HTMLElement) || !(menus.cases instanceof HTMLElement)) return;
+    if (!(triggers.services instanceof HTMLElement) || !(triggers.cases instanceof HTMLElement)) return;
+
+    let openKey = null;
+    let closeTimer = 0;
+
+    const setOpen = (key, open) => {
+      const el = menus[key];
+      if (!(el instanceof HTMLElement)) return;
+      el.dataset.open = open ? "true" : "false";
+      el.setAttribute("aria-hidden", open ? "false" : "true");
+      if (!open && openKey === key) openKey = null;
+    };
+
+    const cancelClose = () => {
+      if (!closeTimer) return;
+      window.clearTimeout(closeTimer);
+      closeTimer = 0;
+    };
+
+    const closeAll = () => {
+      cancelClose();
+      setOpen("services", false);
+      setOpen("cases", false);
+      openKey = null;
+    };
+
+    const open = (key) => {
+      if (!isDesktop()) return;
+      cancelClose();
+      if (openKey && openKey !== key) setOpen(openKey, false);
+      openKey = key;
+      setOpen(key, true);
+    };
+
+    const scheduleClose = () => {
+      cancelClose();
+      closeTimer = window.setTimeout(() => {
+        closeAll();
+      }, 150);
+    };
+
+    const bind = (key) => {
+      const trigger = triggers[key];
+      const menu = menus[key];
+      if (!(trigger instanceof HTMLElement) || !(menu instanceof HTMLElement)) return;
+
+      trigger.addEventListener("mouseenter", () => open(key));
+      trigger.addEventListener("focusin", () => open(key));
+      trigger.addEventListener("mouseleave", scheduleClose);
+      trigger.addEventListener("focusout", scheduleClose);
+
+      menu.addEventListener("mouseenter", cancelClose);
+      menu.addEventListener("mouseleave", scheduleClose);
+      menu.addEventListener("focusin", cancelClose);
+      menu.addEventListener("focusout", scheduleClose);
+    };
+
+    bind("cases");
+    bind("services");
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      closeAll();
+    });
+
+    document.addEventListener("pointerdown", (e) => {
+      if (!openKey) return;
+      const menu = menus[openKey];
+      if (!(menu instanceof HTMLElement)) return;
+      const target = e.target;
+      if (target instanceof Node && (nav.contains(target) || menu.contains(target))) return;
+      closeAll();
+    }, { passive: true });
+
+    desktopMq?.addEventListener?.("change", () => {
+      if (!isDesktop()) closeAll();
+    });
+
+    // Services menu: swap preview content on hover/focus.
+    const servicePreviews = {
+      "/en/service/branding": {
+        desc: "We build a brand strategy and identity designed to elevate and grow your brand.",
+        alt: "Brand Strategy & Identity",
+        src: "https://images.prismic.io/hatamex/aSceIWGnmrmGqW5h_32.webp?auto=format%2Ccompress&fit=max&w=3840",
+        srcset:
+          "https://images.prismic.io/hatamex/aSceIWGnmrmGqW5h_32.webp?auto=format%2Ccompress&fit=max&w=640 640w, https://images.prismic.io/hatamex/aSceIWGnmrmGqW5h_32.webp?auto=format%2Ccompress&fit=max&w=750 750w, https://images.prismic.io/hatamex/aSceIWGnmrmGqW5h_32.webp?auto=format%2Ccompress&fit=max&w=828 828w, https://images.prismic.io/hatamex/aSceIWGnmrmGqW5h_32.webp?auto=format%2Ccompress&fit=max&w=1080 1080w, https://images.prismic.io/hatamex/aSceIWGnmrmGqW5h_32.webp?auto=format%2Ccompress&fit=max&w=1200 1200w, https://images.prismic.io/hatamex/aSceIWGnmrmGqW5h_32.webp?auto=format%2Ccompress&fit=max&w=1920 1920w, https://images.prismic.io/hatamex/aSceIWGnmrmGqW5h_32.webp?auto=format%2Ccompress&fit=max&w=2048 2048w, https://images.prismic.io/hatamex/aSceIWGnmrmGqW5h_32.webp?auto=format%2Ccompress&fit=max&w=3840 3840w",
+      },
+      "/en/service/digital-development": {
+        desc: "Custom-built websites and webshops that combine speed, conversion, and scalability.",
+        alt: "Digital Development",
+        src: "https://images.prismic.io/hatamex/aScboGGnmrmGqW3G_16.webp?auto=format%2Ccompress&fit=max&w=3840",
+        srcset:
+          "https://images.prismic.io/hatamex/aScboGGnmrmGqW3G_16.webp?auto=format%2Ccompress&fit=max&w=640 640w, https://images.prismic.io/hatamex/aScboGGnmrmGqW3G_16.webp?auto=format%2Ccompress&fit=max&w=750 750w, https://images.prismic.io/hatamex/aScboGGnmrmGqW3G_16.webp?auto=format%2Ccompress&fit=max&w=828 828w, https://images.prismic.io/hatamex/aScboGGnmrmGqW3G_16.webp?auto=format%2Ccompress&fit=max&w=1080 1080w, https://images.prismic.io/hatamex/aScboGGnmrmGqW3G_16.webp?auto=format%2Ccompress&fit=max&w=1200 1200w, https://images.prismic.io/hatamex/aScboGGnmrmGqW3G_16.webp?auto=format%2Ccompress&fit=max&w=1920 1920w, https://images.prismic.io/hatamex/aScboGGnmrmGqW3G_16.webp?auto=format%2Ccompress&fit=max&w=2048 2048w, https://images.prismic.io/hatamex/aScboGGnmrmGqW3G_16.webp?auto=format%2Ccompress&fit=max&w=3840 3840w",
+      },
+      "/en/service/digital-marketing": {
+        desc: "Marketing that expands your reach and delivers more conversions. From campaigns to automation: everything works together",
+        alt: "Digital Marketing",
+        src: "https://images.prismic.io/hatamex/aSaw_WGnmrmGqVhc_1-1-.webp?auto=format%2Ccompress&fit=max&w=3840",
+        srcset:
+          "https://images.prismic.io/hatamex/aSaw_WGnmrmGqVhc_1-1-.webp?auto=format%2Ccompress&fit=max&w=640 640w, https://images.prismic.io/hatamex/aSaw_WGnmrmGqVhc_1-1-.webp?auto=format%2Ccompress&fit=max&w=750 750w, https://images.prismic.io/hatamex/aSaw_WGnmrmGqVhc_1-1-.webp?auto=format%2Ccompress&fit=max&w=828 828w, https://images.prismic.io/hatamex/aSaw_WGnmrmGqVhc_1-1-.webp?auto=format%2Ccompress&fit=max&w=1080 1080w, https://images.prismic.io/hatamex/aSaw_WGnmrmGqVhc_1-1-.webp?auto=format%2Ccompress&fit=max&w=1200 1200w, https://images.prismic.io/hatamex/aSaw_WGnmrmGqVhc_1-1-.webp?auto=format%2Ccompress&fit=max&w=1920 1920w, https://images.prismic.io/hatamex/aSaw_WGnmrmGqVhc_1-1-.webp?auto=format%2Ccompress&fit=max&w=2048 2048w, https://images.prismic.io/hatamex/aSaw_WGnmrmGqVhc_1-1-.webp?auto=format%2Ccompress&fit=max&w=3840 3840w",
+      },
+      "/en/service/photography-and-visual-production": {
+        desc: "Premium photo, video, and AI-powered visuals that strengthen your brand with standout, attention-grabbing content.",
+        alt: "Photography & Visual Production",
+        src: "https://images.prismic.io/hatamex/aSdCgGGnmrmGqXY-_Golden.webp?auto=format%2Ccompress&fit=max&w=3840",
+        srcset:
+          "https://images.prismic.io/hatamex/aSdCgGGnmrmGqXY-_Golden.webp?auto=format%2Ccompress&fit=max&w=640 640w, https://images.prismic.io/hatamex/aSdCgGGnmrmGqXY-_Golden.webp?auto=format%2Ccompress&fit=max&w=750 750w, https://images.prismic.io/hatamex/aSdCgGGnmrmGqXY-_Golden.webp?auto=format%2Ccompress&fit=max&w=828 828w, https://images.prismic.io/hatamex/aSdCgGGnmrmGqXY-_Golden.webp?auto=format%2Ccompress&fit=max&w=1080 1080w, https://images.prismic.io/hatamex/aSdCgGGnmrmGqXY-_Golden.webp?auto=format%2Ccompress&fit=max&w=1200 1200w, https://images.prismic.io/hatamex/aSdCgGGnmrmGqXY-_Golden.webp?auto=format%2Ccompress&fit=max&w=1920 1920w, https://images.prismic.io/hatamex/aSdCgGGnmrmGqXY-_Golden.webp?auto=format%2Ccompress&fit=max&w=2048 2048w, https://images.prismic.io/hatamex/aSdCgGGnmrmGqXY-_Golden.webp?auto=format%2Ccompress&fit=max&w=3840 3840w",
+      },
+    };
+
+    const servicesMenu = menus.services;
+    const servicesDesc = servicesMenu.querySelector("p.font-body");
+    const servicesImg = servicesMenu.querySelector("img[data-remote-src]");
+    const serviceLinks = Array.from(servicesMenu.querySelectorAll('a[href^="/en/service/"]'));
+
+    const setPreview = (href) => {
+      const cfg = servicePreviews[href];
+      if (!cfg) return;
+      if (servicesDesc) servicesDesc.textContent = cfg.desc;
+      if (servicesImg instanceof HTMLImageElement) {
+        // Small transition on swap to match the live feel.
+        void animate(
+          servicesImg,
+          [
+            { opacity: 0.9, transform: "scale(1.015)" },
+            { opacity: 1, transform: "scale(1)" },
+          ],
+          { duration: 350, easing: "cubic-bezier(0.4, 0, 0.2, 1)" },
+        );
+
+        servicesImg.alt = cfg.alt;
+        servicesImg.setAttribute("data-remote-src", cfg.src);
+        servicesImg.setAttribute("data-remote-srcset", cfg.srcset);
+        if (ASSET_MODE === "remote") {
+          servicesImg.src = cfg.src;
+          servicesImg.setAttribute("srcset", cfg.srcset);
+        } else {
+          servicesImg.removeAttribute("srcset");
+        }
+      }
+    };
+
+    for (const link of serviceLinks) {
+      if (!(link instanceof HTMLAnchorElement)) continue;
+      const href = link.getAttribute("href") || "";
+      link.addEventListener("mouseenter", () => setPreview(href));
+      link.addEventListener("focus", () => setPreview(href));
+    }
+  }
+
   async function main() {
     if (ASSET_MODE === "remote") enableRemoteAssets();
 
     initNavMotion();
     initMobileNav();
+    initNavMegaMenus();
 
     // Effects that should be ready by the time the preloader clears.
     // (On the live site, the manifesto per-character reveal is driven by Framer Motion and is

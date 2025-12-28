@@ -1,5 +1,5 @@
 :root {
-  /* Valcon build does not adapt to OS dark mode; force light UA colors so sections like the manifesto
+  /* Lucid Studio's build does not adapt to OS dark mode; force light UA colors so sections like the manifesto
      (bg-white with inherited text color) stay readable even when `prefers-color-scheme: dark`. */
   color-scheme: light;
 }
@@ -37,6 +37,60 @@
 /* Placeholder iframe styling */
 iframe[src="about:blank"] {
   background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+}
+
+/* Desktop nav dropdown (original implementation; not from the referenced site) */
+.nav-dropdown-panel {
+  display: none !important;
+}
+
+.nav-item--dropdown:hover > .nav-dropdown-panel,
+.nav-item--dropdown:focus-within > .nav-dropdown-panel {
+  display: none !important;
+}
+
+.nav-dropdown-link {
+  display: none !important;
+}
+
+.nav-dropdown-link:hover,
+.nav-dropdown-link:focus-visible {
+  display: none !important;
+}
+
+/* Header mega menus (extracted structure, state driven by script.js) */
+.nav-mega {
+  top: 90px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 200ms var(--hx-ease-default), transform 350ms var(--hx-ease-menu);
+}
+
+.nav-mega[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav-mega-surface {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 350ms var(--hx-ease-menu);
+}
+
+.nav-mega[data-open="true"] .nav-mega-surface {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* Mega menu hover interactions */
+.nav-mega[data-mega-menu="services"] a[href^="/en/service/"]:hover h4,
+.nav-mega[data-mega-menu="services"] a[href^="/en/service/"]:focus-visible h4 {
+  color: var(--color-accent);
+}
+
+.nav-mega[data-mega-menu="services"] a[href^="/en/service/"]:hover svg,
+.nav-mega[data-mega-menu="services"] a[href^="/en/service/"]:focus-visible svg {
+  opacity: 1;
 }
 
 /* Reduced motion support */

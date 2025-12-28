@@ -17,7 +17,12 @@
     "dev:static": "node scripts/dev.mjs --open",
     "validate:static": "node scripts/validate.mjs",
     "clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\"",
-    "dev": "next dev --turbo",
+    "reset": "node scripts/reset-next.mjs",
+    "dev": "node scripts/dev-next.mjs --port 3000 --clean",
+    "dev:3000": "node scripts/dev-next.mjs --port 3000 --clean",
+    "dev:clean": "node scripts/dev-next.mjs --port 3000 --clean",
+    "dev:noclean": "node scripts/dev-next.mjs --port 3000",
+    "dev:next": "next dev",
     "build": "next build",
     "start": "next start",
     "validate": "node scripts/validate-next.mjs"

@@ -35,13 +35,16 @@ function waitForServer(url, { timeoutMs = 20_000 } = {}) {
 
 async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
+  if (process.env.NEXT_CLEAN === "1") {
+    await fs.rm(path.resolve(ROOT, ".next"), { recursive: true, force: true }).catch(() => {});
+  }
 
   const port = Number(process.env.PORT || 3000);
   const url = `http://localhost:${port}/`;
 
   const server = spawn(
     process.platform === "win32" ? "npx.cmd" : "npx",
-    ["next", "dev", "--turbo", "-p", String(port)],
+    ["next", "dev", "-p", String(port)],
     { cwd: ROOT, stdio: "inherit", env: { ...process.env, NODE_ENV: "development" } },
   );
 

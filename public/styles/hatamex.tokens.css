@@ -1,0 +1,109 @@
+:root {
+  /* Colors */
+  --hx-bg: rgb(0, 0, 0);
+  --hx-surface-1: #fff;
+  --hx-surface-2: #f4f4f4;
+  --hx-border: #c8c8c8;
+  --hx-border-muted: oklab(0.999994 0.0000455678 0.0000200868 / 0.1);
+  --hx-text: rgb(255, 255, 255);
+  --hx-text-muted: rgb(168, 162, 157);
+  --hx-accent: rgb(23, 24, 254);
+  --hx-accent-contrast: rgb(255, 255, 255);
+  --hx-focus: rgb(23, 24, 254);
+  --hx-overlay: oklab(0 0 0 / 0.4);
+  --hx-gradient-1: linear-gradient(in oklab, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+
+  /* Typography */
+  --hx-font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --hx-font-heading: rinter, "rinter Fallback";
+  --hx-font-weight-regular: 400;
+  --hx-font-weight-medium: 500;
+  --hx-font-weight-semibold: 600;
+  --hx-font-weight-bold: 700;
+  --hx-tracking-eyebrow: -0.42px;
+  --hx-eyebrow-transform: uppercase;
+  --hx-h2-tracking: -2.75px;
+  --hx-h3-tracking: -0.54px;
+  --hx-h1-size: 40px;
+  --hx-h1-line: 40px;
+  --hx-h2-size: 30px;
+  --hx-h2-line: 33px;
+  --hx-h3-size: 20px;
+  --hx-h3-line: 24px;
+  --hx-body-size: 14px;
+  --hx-body-line: 19.6px;
+  --hx-small-size: 12px;
+  --hx-small-line: 14.4px;
+
+  /* Layout */
+  --hx-container-max: 1500px;
+  --hx-container-pad-x: 12px;
+  --hx-section-pad-y: 60px;
+  --hx-grid-gap-sm: 30px;
+  --hx-grid-gap-md: 24px;
+  --hx-grid-gap-lg: 30px;
+  --hx-card-pad: 50px 20px;
+  --hx-stack-1: 16px;
+  --hx-stack-2: 16px;
+  --hx-stack-3: 50px;
+
+  /* Components */
+  --hx-focus-width: 2px;
+  --hx-focus-offset: 2px;
+  --hx-btn-primary-pad-x: 28px;
+  --hx-btn-primary-pad-y: 15px;
+  --hx-btn-primary-font: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --hx-btn-primary-size: 14px;
+  --hx-btn-primary-weight: 400;
+  --hx-btn-primary-tracking: -0.42px;
+  --hx-btn-primary-transform: none;
+  --hx-btn-primary-bg-hover: rgb(23, 24, 254);
+  --hx-btn-secondary-bg: rgb(255, 255, 255);
+  --hx-btn-secondary-color: rgb(0, 0, 0);
+  --hx-btn-secondary-border: oklab(0 0 0 / 0.2);
+  --hx-btn-secondary-pad-x: 30px;
+  --hx-btn-secondary-pad-y: 15px;
+  --hx-btn-secondary-height: 54px;
+  --hx-btn-secondary-font: "Source Code Pro", "Source Code Pro Fallback";
+  --hx-btn-secondary-size: 14px;
+  --hx-btn-secondary-weight: 400;
+  --hx-btn-secondary-tracking: -0.42px;
+  --hx-btn-secondary-transform: none;
+  --hx-btn-secondary-bg-hover: oklab(0.999994 0.0000455677 0.0000200868 / 0.8);
+  --hx-btn-secondary-color-hover: rgb(23, 24, 254);
+  --hx-card-border: oklab(0.999994 0.0000455678 0.0000200868 / 0.4);
+  --hx-card-border-w: 1px;
+  --hx-card-bg: rgba(0, 0, 0, 0);
+  --hx-card-bg-hover: oklab(0.999994 0.0000455678 0.0000200868 / 0.12);
+
+  /* Shape/Elevation */
+  --hx-radius-card: 0px;
+  --hx-radius-btn: 0px;
+  --hx-border-w: 1px;
+  --hx-shadow-card: none;
+  --hx-shadow-card-hover: none;
+  --hx-shadow-focus: none;
+
+  /* Motion */
+  --hx-ease: cubic-bezier(.4,0,.2,1);
+  --hx-dur-1: .15s;
+  --hx-dur-2: 0.15s;
+  --hx-hover-lift: 0px;
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --hx-container-pad-x: 64px;
+    --hx-section-pad-y: 200px;
+    --hx-h1-size: 70px;
+    --hx-h1-line: 66.5px;
+    --hx-h2-size: 55px;
+    --hx-h2-line: 60.5px;
+    --hx-h3-size: 24px;
+    --hx-h3-line: 28.8px;
+    --hx-body-size: 20px;
+    --hx-body-line: 20px;
+    --hx-small-size: 14px;
+    --hx-small-line: 21px;
+  }
+}
